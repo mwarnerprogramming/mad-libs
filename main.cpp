@@ -2,7 +2,7 @@
  * @file main.cpp
  * @author Michael Warner (michaelwarnerprogramming@gmail.com)
  * @brief simple mad libs generator.
- * @version 0.1
+ * @version 0.2
  * @date 2022-07-25
  * 
  */
@@ -15,9 +15,9 @@ using std::cout;
 using std::endl;
 using std::string;
 
-void madlib1() {
-
+void madLib1() {
     string prompt[9], userWord[9];
+    int length = sizeof(prompt) / sizeof(string);
 
     prompt[0] = "Enter an animal (1/9): ";
     prompt[1] = "Enter a country (2/9): ";
@@ -29,10 +29,8 @@ void madlib1() {
     prompt[7] = "Enter a verb (8/9): ";
     prompt[8] = "Enter an adjective (9/9): ";
 
-    int length = sizeof(prompt) / sizeof(string);
-
     for (int i = 0; i < length; i++) {
-        cout << prompt[i];  
+        cout << prompt[i];
         cin >> userWord[i];
     }
 
@@ -45,9 +43,10 @@ void madlib1() {
     cout << "Soon, the device becomes " << userWord[8] << ", and the family decides to put it back where they found it."    <<  endl;
 }
 
-void madlib2(){
+void madLib2(){
     
     string prompt[18], userWord[18];
+    int length = sizeof(prompt) / sizeof(string);
 
     prompt[0]  = "Enter a name (1/18): ";
     prompt[1]  = "Enter a transformation (2/18): ";
@@ -68,10 +67,8 @@ void madlib2(){
     prompt[16] = "Enter a name (17/18): ";
     prompt[17] = "Enter a TV show (18/18)";
 
-    int length = sizeof(prompt) / sizeof(string);
-
-    for (int i = 0; i < length; i++) {
-        cout << prompt[i];  
+     for (int i = 0; i < length; i++) {
+        cout << prompt[i];
         cin >> userWord[i];
     }
 
@@ -83,7 +80,7 @@ void madlib2(){
     cout << "resolved, I am done, you hear me? DONE, with" << userWord[17];
 }
 
-int main() {
+void menu() {
     char choice;
     bool execute = true;
 
@@ -99,10 +96,10 @@ int main() {
 
             switch (choice) {
                 case '1':
-                    madlib1();
+                    madLib1();
                     break;
                 case '2':
-                    madlib2();
+                    madLib2();
                     break;
                 case 'q':
                     cout << "Now exiting.";
@@ -111,5 +108,12 @@ int main() {
                 default:break;
             }
     }
+}
+
+
+int main() {
+
+    menu();
+
     return 0;
 }
